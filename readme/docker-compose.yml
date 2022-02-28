@@ -8,15 +8,20 @@ services:
       volumes:
         - ./content:/usr/share/nginx/html:ro
       ports:
-        - 8080:80
+        - 8081:80
+      labels:
+        - "traefik.http.routers.readme.rule=Host(`dev03.zahite.net`)"
+        - "traefik.http.routers.readme.tls=true"
       networks:
-        - frontend
+        - traefik
 
 
 
 
 networks:
-    frontend:
-      external:
-        name: frontend-readme
-        
+  traefik:
+    external:
+      name: traefik-readme
+
+
+

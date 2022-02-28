@@ -1,0 +1,18 @@
+[api]	
+  insecure = true
+  dashboard = true
+
+[providers.docker]
+
+[entryPoints]
+  [entryPoints.web]
+    address = ":80"
+  [entryPoints.websecure]
+    address = ":443"
+
+
+[[tls.certificates]]
+  certFile = "/certs/zahite.crt"
+  keyFile = "/certs/zahite.key"
+
+

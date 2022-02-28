@@ -16,6 +16,7 @@ services:
         - 443:443
       networks:
         - readme
+        - uptime-kuma
 
 
 
@@ -24,6 +25,9 @@ networks:
     external:
       name: traefik-readme
         
+  uptime-kuma:
+    external:
+      name: traefik-uptime-kuma
 
 
 

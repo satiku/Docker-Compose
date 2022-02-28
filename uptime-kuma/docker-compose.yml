@@ -1,0 +1,28 @@
+version: "3.7"
+
+  
+services:
+
+  uptime-kuma:
+      image: louislam/uptime-kuma
+      volumes:
+        - ./data:/app/data
+      ports:
+        - 8083:3001
+      labels:
+        - "traefik.http.routers.uptime-kuma.rule=Host(`status.dev03.zahite.net`)"
+        - "traefik.http.routers.uptime-kuma.tls=true"
+        - "traefik.docker.network=traefik-uptime-kuma"
+      networks:
+        - traefik
+
+
+
+
+networks:
+  traefik:
+    external:
+      name: traefik-uptime-kuma
+
+
+

@@ -17,6 +17,7 @@ services:
       networks:
         - readme
         - uptime-kuma
+        - miniflux
 
 
 

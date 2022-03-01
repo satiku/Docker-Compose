@@ -1,0 +1,49 @@
+version: '3.4'
+services:
+  miniflux:
+    image: miniflux/miniflux:latest
+    depends_on:
+      - db
+    ports:
+      - 8082:8080
+    environment:
+      - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
+      - RUN_MIGRATIONS=1
+      - CREATE_ADMIN=1
+      - ADMIN_USERNAME=admin
+      - ADMIN_PASSWORD=test123
+      - BASE_URL=https://feed.dev03.zahite.net
+    labels:
+      - "traefik.http.routers.miniflux.rule=Host(`feed.dev03.zahite.net`)"
+      - "traefik.http.routers.miniflux.tls=true"
+      - "traefik.docker.network=traefik_miniflux"
+    networks:
+      - miniflux-db
+      - traefik
+
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=miniflux
+      - POSTGRES_PASSWORD=secret
+    volumes:
+      - miniflux-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "miniflux"]
+      interval: 10s
+      start_period: 30s
+    networks:
+      - miniflux-db
+
+
+volumes:
+  miniflux-db:
+
+
+networks:
+  miniflux-db:
+    driver: overlay
+
+  traefik:
+    external:
+      name: traefik_miniflux

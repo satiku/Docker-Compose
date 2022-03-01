@@ -22,12 +22,16 @@ services:
 
 networks:
   readme:
-    external:
-      name: traefik-readme
-        
+    attachable: true
+    driver: overlay
+
   uptime-kuma:
-    external:
-      name: traefik-uptime-kuma
+    attachable: true
+    driver: overlay
+
+  miniflux:
+    attachable: true
+    driver: overlay
 
 
 

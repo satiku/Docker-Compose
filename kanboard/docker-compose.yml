@@ -1,9 +1,11 @@
-version: '2'
+version: '3.4'
 services:
   kanboard:
     image: kanboard/kanboard:latest
+    depends_on:
+      - db
     ports:
-      - "8083:80"
+      - "8084:80"
     volumes:
       - kanboard_data:/var/www/app/data
       - kanboard_plugins:/var/www/app/plugins
@@ -12,7 +14,7 @@ services:
       DATABASE_URL: mysql://kanboard:kanboard-secret@db/kanboard
     networks:
       - kanboard-db
-      - traefik
+#      - traefik
         
         
   db:

@@ -18,7 +18,7 @@ services:
         - readme
         - uptime-kuma
         - miniflux
-
+        - kanboard
 
 
 networks:
@@ -34,6 +34,9 @@ networks:
     attachable: true
     driver: overlay
 
+  kanboard:
+    attachable: true
+    driver: overlay
 
 
 

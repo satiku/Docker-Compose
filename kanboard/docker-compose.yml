@@ -15,7 +15,10 @@ services:
     networks:
       - kanboard-db
       - traefik
-        
+    labels:
+      - "traefik.http.routers.kanboard.rule=Host(`task.dev03.zahite.net`)"
+      - "traefik.http.routers.kanboard.tls=true"
+      - "traefik.docker.network=traefik_kanboard"      
         
   db:
     image: mariadb:latest

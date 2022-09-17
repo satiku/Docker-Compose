@@ -19,6 +19,7 @@ services:
         - uptime-kuma
         - miniflux
         - kanboard
+        - inventree
 
 
 networks:
@@ -38,5 +39,8 @@ networks:
     attachable: true
     driver: overlay
 
+  inventree:
+    attachable: true
+    driver: overlay
 
 

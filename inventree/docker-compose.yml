@@ -121,6 +121,12 @@ services:
             # nginx proxy needs access to static and media files
             - inventree_data:/var/www
         restart: unless-stopped
+        networks:
+            - traefik
+        labels:
+            - "traefik.http.routers.inventree.rule=Host(`task.dev03.zahite.net`)"
+            - "traefik.http.routers.inventree.tls=true"
+            - "traefik.docker.network=traefik_inventree"    
 
 volumes:
     # Persistent data, stored external to the container(s)
@@ -131,3 +137,10 @@ volumes:
             o: bind
             # This directory specified where InvenTree data are stored "outside" the docker containers
             device: ${INVENTREE_EXT_VOLUME:?You must specify the 'INVENTREE_EXT_VOLUME' variable in the .env file!}
+
+
+
+networks:
+    traefik:
+        external:
+            name: traefik_inventree

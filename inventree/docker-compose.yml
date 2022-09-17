@@ -59,8 +59,8 @@ services:
         image: redis:7.0
         depends_on:
             - inventree-db
-        profiles:
-            - redis
+#        profiles:
+#            - redis
         env_file:
             - .env
         expose:

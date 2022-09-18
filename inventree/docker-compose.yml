@@ -85,6 +85,7 @@ services:
             # Data volume must map to /home/inventree/data
             - inventree_data:/home/inventree/data
         networks:
+            - inventree-worker
             - inventree-db
         restart: unless-stopped
 
@@ -101,6 +102,8 @@ services:
         volumes:
             # Data volume must map to /home/inventree/data
             - inventree_data:/home/inventree/data
+        networks:
+            - inventree-worker
         restart: unless-stopped
 
     # nginx acts as a reverse proxy
@@ -149,6 +152,8 @@ networks:
     inventree-db:
         driver: overlay 
     inventree-proxy:
+        driver: overlay 
+    inventree-worker:
         driver: overlay 
     
     traefik:

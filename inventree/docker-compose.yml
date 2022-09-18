@@ -104,6 +104,7 @@ services:
             - inventree_data:/home/inventree/data
         networks:
             - inventree-worker
+            - inventree-db
         restart: unless-stopped
 
     # nginx acts as a reverse proxy

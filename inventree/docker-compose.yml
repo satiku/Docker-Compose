@@ -54,19 +54,19 @@ services:
 
     # redis acts as database cache manager
     # only runs under the "redis" profile : https://docs.docker.com/compose/profiles/
-    inventree-cache:
-        container_name: inventree-cache
-        image: redis:7.0
-        depends_on:
-            - inventree-db
+#    inventree-cache:
+#        container_name: inventree-cache
+#        image: redis:7.0
+#        depends_on:
+#            - inventree-db
 #        profiles:
 #            - redis
-        env_file:
-            - .env
-        expose:
-            - ${INVENTREE_CACHE_PORT:-6379}
-        restart: always
-
+#        env_file:
+#            - .env
+#        expose:
+#            - ${INVENTREE_CACHE_PORT:-6379}
+#        restart: always
+#
     # InvenTree web server service
     # Uses gunicorn as the web server
     inventree-server:

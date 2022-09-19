@@ -23,11 +23,11 @@ services:
      - "traefik.docker.network=traefik_node-red"  
 
 
-  networks:
-    traefik:
-      external:
-        name: traefik_node-red
+networks:
+  traefik:
+    external:
+      name: traefik_node-red
 
-  volumes:
-    node-red-data:
+volumes:
+  node-red-data:
 

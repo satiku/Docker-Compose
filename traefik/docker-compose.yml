@@ -20,6 +20,7 @@ services:
         - miniflux
         - kanboard
         - node-red
+        - jenkins
 
 
 networks:
@@ -43,5 +44,8 @@ networks:
     attachable: true
     driver: overlay
 
+  jenkins:
+    attachable: true
+    driver: overlay
 
 

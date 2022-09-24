@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  jenkins:
+    image: jenkins/jenkins:lts-jdk11
+    ports:
+     - "50000:50000"
+     - "8080:8080"
+    volumes:
+     - jenkins_home:/var/jenkins_home
+    networks:
+     - traefik
+    labels:
+     - "traefik.http.routers.jenkins.rule=Host(`cicd.dev03.zahite.net`)"
+     - "traefik.http.routers.jenkins.tls=true"
+     - "traefik.docker.network=traefik_jenkins"  
+
+
+networks:
+  traefik:
+    external:
+      name: traefik_jenkins
+
+volumes:
+  jenkins_home:

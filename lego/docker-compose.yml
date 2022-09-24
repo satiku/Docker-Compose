@@ -1,0 +1,33 @@
+##########################################################America/New_York######################
+## Node-RED Stack or Compose
+#################################################################################
+## docker stack deploy node-red --compose-file docker-compose-node-red.yml
+## docker-compose -f docker-compose-node-red.yml -p myNoderedProject up
+################################################################################
+version: "3.7"
+
+services:
+  node-red:
+    image: nodered/node-red:latest
+    environment:
+      - TZ=America/New_York
+    ports:
+     - "1880:1880"
+    volumes:
+     - node-red-data:/data
+    networks:
+     - traefik
+    labels:
+     - "traefik.http.routers.node-red.rule=Host(`node.dev03.zahite.net`)"
+     - "traefik.http.routers.node-red.tls=true"
+     - "traefik.docker.network=traefik_node-red"  
+
+
+networks:
+  traefik:
+    external:
+      name: traefik_node-red
+
+volumes:
+  node-red-data:
+

@@ -19,6 +19,7 @@ services:
         - uptime-kuma
         - miniflux
         - kanboard
+        - node-red
 
 
 networks:
@@ -35,6 +36,10 @@ networks:
     driver: overlay
 
   kanboard:
+    attachable: true
+    driver: overlay
+
+  node-red:
     attachable: true
     driver: overlay
 

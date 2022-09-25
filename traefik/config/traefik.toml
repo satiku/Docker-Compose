@@ -14,8 +14,8 @@
   email = "satiku@gmail.com
   storage = acme.json
 
-  [certificatesResolvers.myresolver.acme.tlsChallenge]
-    entryPoint = "websecure"
+  [certificatesResolvers.myresolver.acme.httpChallenge]
+    entryPoint = "web"
 
 
 #[[tls.certificates]]

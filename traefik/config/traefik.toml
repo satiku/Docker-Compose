@@ -17,9 +17,3 @@
   [certificatesResolvers.myresolver.acme.httpChallenge]
     entryPoint = "web"
 
-
-#[[tls.certificates]]
-#  certFile = "/certs/zahite.crt"
-#  keyFile = "/certs/zahite.key"
-#
-#

@@ -11,8 +11,11 @@
     address = ":443"
 
 [certificatesResolvers.myresolver.acme]
-  # ...
+  email = "satiku@gmail.com
+  storage = acme.json
+
   [certificatesResolvers.myresolver.acme.tlsChallenge]
+    entryPoint = "web"
 
 
 #[[tls.certificates]]

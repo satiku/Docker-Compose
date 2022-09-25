@@ -16,6 +16,7 @@ services:
     labels:
       - "traefik.http.routers.miniflux.rule=Host(`feed.dev03.zahite.net`)"
       - "traefik.http.routers.miniflux.tls=true"
+      - "traefik.http.routers.miniflux.tls.certresolver=myresolver"
       - "traefik.docker.network=traefik_miniflux"
     networks:
       - miniflux-db

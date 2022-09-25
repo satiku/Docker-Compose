@@ -10,9 +10,10 @@
   [entryPoints.websecure]
     address = ":443"
 
+[certificatesResolvers.myresolver.acme]
+  email = "satiku@gmail.com"
+  storage = "acme.json"
 
-[[tls.certificates]]
-  certFile = "/certs/zahite.crt"
-  keyFile = "/certs/zahite.key"
-
+  [certificatesResolvers.myresolver.acme.httpChallenge]
+    entryPoint = "web"
 

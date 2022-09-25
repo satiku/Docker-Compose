@@ -12,7 +12,7 @@ services:
       labels:
         - "traefik.http.routers.uptime-kuma.rule=Host(`status.dev03.zahite.net`)"
         - "traefik.http.routers.uptime-kuma.tls=true"
-        - "traefik.http.routers.uptime-kuma.tls.certresolver=acme"
+        - "traefik.http.routers.uptime-kuma.tls.certresolver=myresolver"
         - "traefik.docker.network=traefik_uptime-kuma"
       networks:
         - traefik

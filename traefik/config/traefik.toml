@@ -15,8 +15,8 @@
   [certificatesResolvers.myresolver.acme.tlsChallenge]
 
 
-[[tls.certificates]]
-  certFile = "/certs/zahite.crt"
-  keyFile = "/certs/zahite.key"
-
-
+#[[tls.certificates]]
+#  certFile = "/certs/zahite.crt"
+#  keyFile = "/certs/zahite.key"
+#
+#

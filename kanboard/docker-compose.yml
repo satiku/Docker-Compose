@@ -18,6 +18,7 @@ services:
     labels:
       - "traefik.http.routers.kanboard.rule=Host(`task.dev03.zahite.net`)"
       - "traefik.http.routers.kanboard.tls=true"
+      - "traefik.http.routers.kanboard.tls.certresolver=myresolver"
       - "traefik.docker.network=traefik_kanboard"      
         
   db:

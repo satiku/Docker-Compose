@@ -11,8 +11,8 @@
     address = ":443"
 
 [certificatesResolvers.myresolver.acme]
-  email = "satiku@gmail.com
-  storage = acme.json
+  email = "satiku@gmail.com"
+  storage = "acme.json"
 
   [certificatesResolvers.myresolver.acme.httpChallenge]
     entryPoint = "web"

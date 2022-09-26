@@ -7,7 +7,6 @@ services:
     restart: unless-stopped
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
     environment:
-      - MYSQL_ROOT_PASSWORD=someDbPassword
       - MYSQL_USER=linkacedb
       - MYSQL_PASSWORD=dbuser
       - MYSQL_DATABASE=someDbPassword

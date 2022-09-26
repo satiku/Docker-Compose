@@ -1,0 +1,63 @@
+version: "3"
+services:
+
+  # --- MariaDB
+  db:
+    image: mariadb:10.7
+    restart: unless-stopped
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
+    environment:
+      - MYSQL_ROOT_PASSWORD=someDbPassword
+      - MYSQL_USER=dbuser
+      - MYSQL_PASSWORD=someDbPassword
+      - MYSQL_DATABASE=linkacedb
+    volumes:
+      - db:/var/lib/mysql
+    networks:
+      - linkace-db
+  # --- LinkAce Image with PHP and nginx
+  app:
+    image: linkace/linkace:simple
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      - APP_KEY=DG2ymjn7JqEyJKHjUhAamy8sZrqq0qia
+      - DB_CONNECTION=mysql 
+      - DB_HOST=db
+      - DB_DATABASE=linkacedb
+      - DB_USERNAME=dbuser
+      - DB_PASSWORD=someDbPassword
+      - SETUP_COMPLETED=true
+    ports:
+      - "0.0.0.0:8086:80"
+      #- "0.0.0.0:443:443"
+    volumes:
+      - linkace_logs:/app/storage/logs
+      # Remove the hash of the following line if you want to use HTTPS for this container
+      #- ./nginx-ssl.conf:/etc/nginx/conf.d/default.conf:ro
+      #- /path/to/your/ssl/certificates:/certs:ro
+      # Remove the hash of the following line if you want to use local backups
+      #- ./backups:/app/storage/app/backups
+    networks:
+      - linkace-db
+      - traefik
+    labels:
+      - "traefik.http.routers.linkace.rule=Host(`link.dev03.zahite.net`)"
+      - "traefik.http.routers.linkace.tls=true"
+      - "traefik.http.routers.linkace.tls.certresolver=myresolver"
+      - "traefik.docker.network=traefik_linkace"      
+
+volumes:
+  linkace_logs:
+  db:
+    driver: local
+
+
+networks:
+  linkace-db:
+    driver: overlay
+  traefik:
+    external:
+      name: traefik_linkace
+                        

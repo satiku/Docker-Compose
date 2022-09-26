@@ -20,7 +20,7 @@ services:
         - kanboard
         - node-red
         - jenkins
-
+        - linkace
 
 networks:
   readme:
@@ -43,6 +43,10 @@ networks:
     attachable: true
     driver: overlay
 
+  linkace:
+    attachable: true
+    driver: overlay
+  
   jenkins:
     attachable: true
     driver: overlay

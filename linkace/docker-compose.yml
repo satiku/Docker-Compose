@@ -38,7 +38,12 @@ services:
       #- ./backups:/app/storage/app/backups
     networks:
       - linkace-db
-
+      - traefik
+    labels:
+      - "traefik.http.routers.linkace.rule=Host(`link.dev03.zahite.net`)"
+      - "traefik.http.routers.linkace.tls=true"
+      - "traefik.http.routers.linkace.tls.certresolver=myresolver"
+      - "traefik.docker.network=traefik_linkace"      
 
 volumes:
   linkace_logs:
@@ -49,4 +54,7 @@ volumes:
 networks:
   linkace-db:
     driver: overlay
-
+  traefik:
+    external:
+      name: traefik_linkace
+                        

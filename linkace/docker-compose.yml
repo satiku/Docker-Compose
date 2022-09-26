@@ -23,6 +23,7 @@ services:
       - db
     environment:
       - APP_KEY=DG2ymjn7JqEyJKHjUhAamy8sZrqq0qia
+      - DB_CONNECTION=mysql 
       - DB_HOST=db
       - DB_DATABASE=linkacedb
       - DB_USERNAME=dbuser

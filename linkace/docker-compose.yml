@@ -12,7 +12,8 @@ services:
       - MYSQL_DATABASE=someDbPassword
     volumes:
       - db:/var/lib/mysql
-
+    networks:
+      - linkace-db
   # --- LinkAce Image with PHP and nginx
   app:
     image: linkace/linkace:simple
@@ -35,8 +36,17 @@ services:
       #- /path/to/your/ssl/certificates:/certs:ro
       # Remove the hash of the following line if you want to use local backups
       #- ./backups:/app/storage/app/backups
+    networks:
+      - linkace-db
+
 
 volumes:
   linkace_logs:
   db:
     driver: local
+
+
+networks:
+  linkace-db:
+    driver: overlay
+

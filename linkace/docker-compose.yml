@@ -21,7 +21,7 @@ services:
     depends_on:
       - db
     environment:
-      - APP_KEY=base64:jpzRiL9ceL5...
+      - APP_KEY=DG2ymjn7JqEyJKHjUhAamy8sZrqq0qia
       - DB_HOST=db
       - DB_DATABASE=linkacedb
       - DB_USERNAME=dbuser

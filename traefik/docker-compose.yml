@@ -21,6 +21,7 @@ services:
         - node-red
         - jenkins
         - linkace
+        - audio-bookshelf
 
 networks:
   readme:
@@ -48,6 +49,10 @@ networks:
     driver: overlay
   
   jenkins:
+    attachable: true
+    driver: overlay
+
+  audio-bookshelf:
     attachable: true
     driver: overlay
 

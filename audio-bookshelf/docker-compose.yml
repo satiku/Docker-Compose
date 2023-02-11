@@ -13,6 +13,10 @@ services:
     restart: unless-stopped
     networks:
       - traefik
+    labels:
+      - "traefik.http.routers.audiobookshelf.rule=Host(`node.dev03.zahite.net`)"
+      - "traefik.http.routers.audiobookshelf.tls=true"
+      - "traefik.docker.network=taefik_audiobookshelf"
 
 
 volume: 
@@ -23,6 +27,6 @@ volume:
 networks:
   traefik:
     external:
-      name: traefik_kanboard
+      name: traefik_audiobookshelf
 
 

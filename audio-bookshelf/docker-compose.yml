@@ -11,3 +11,14 @@ services:
       - ./metadata:/metadata
       - ./config:/config
     restart: unless-stopped
+    networks:
+      - traefik
+
+
+
+networks:
+  traefik:
+    external:
+      name: traefik_kanboard
+
+

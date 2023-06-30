@@ -20,7 +20,7 @@ services:
 
 
 volumes: 
-  audiobookshelf-audibooks:
+  audiobookshelf-audiobooks:
   audiobookshelf-metadata:
   audiobookshelf-config:
 

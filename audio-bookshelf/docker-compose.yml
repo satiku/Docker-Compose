@@ -1,0 +1,35 @@
+### EXAMPLE DOCKER COMPOSE ###
+version: "3.4"
+
+services:
+  audiobookshelf:
+    image: ghcr.io/advplyr/audiobookshelf
+    ports:
+      - 13378:80
+    volumes:
+      - audiobookshelf-audiobooks:/audiobooks
+      - audiobookshelf-podcasts:/podcasts
+      - audiobookshelf-metadata:/metadata
+      - audiobookshelf-config:/config
+    restart: unless-stopped
+    networks:
+      - traefik
+    labels:
+      - "traefik.http.routers.audiobookshelf.rule=Host(`listen.dev03.zahite.net`)"
+      - "traefik.http.routers.audiobookshelf.tls=true"
+      - "traefik.http.routers.audiobookshelf.tls.certresolver=myresolver"
+      - "traefik.docker.network=taefik_audiobookshelf"
+
+
+volumes: 
+  audiobookshelf-audiobooks:
+  audiobookshelf-podcasts:
+  audiobookshelf-metadata:
+  audiobookshelf-config:
+
+networks:
+  traefik:
+    external:
+      name: traefik_audio-bookshelf
+
+

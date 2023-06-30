@@ -8,6 +8,7 @@ services:
       - 13378:80
     volumes:
       - audiobookshelf-audiobooks:/audiobooks
+      - audiobookshelf-podcasts:/podcasts
       - audiobookshelf-metadata:/metadata
       - audiobookshelf-config:/config
     restart: unless-stopped
@@ -22,6 +23,7 @@ services:
 
 volumes: 
   audiobookshelf-audiobooks:
+  audiobookshelf-podcasts:
   audiobookshelf-metadata:
   audiobookshelf-config:
 

@@ -10,9 +10,9 @@ services:
     volumes:
       - quickshare-data:/quickshare/root
     labels:
-      - "traefik.http.routers.miniflux.rule=Host(`share.dev03.zahite.net`)"
-      - "traefik.http.routers.miniflux.tls=true"
-      - "traefik.http.routers.miniflux.tls.certresolver=myresolver"
+      - "traefik.http.routers.quickshare.rule=Host(`share.dev03.zahite.net`)"
+      - "traefik.http.routers.quickshare.tls=true"
+      - "traefik.http.routers.quickshare.tls.certresolver=myresolver"
       - "traefik.docker.network=traefik_quickshare"
     networks:
       - traefik

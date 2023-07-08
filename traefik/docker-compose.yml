@@ -22,6 +22,7 @@ services:
         - jenkins
         - linkace
         - audio-bookshelf
+        - quickshare
 
 networks:
   readme:
@@ -56,4 +57,7 @@ networks:
     attachable: true
     driver: overlay
 
+  quickshare:
+    attachable: true
+    driver: overlay
 

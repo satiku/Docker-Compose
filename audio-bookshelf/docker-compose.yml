@@ -8,7 +8,9 @@ services:
       - 13378:80
     volumes:
       - audiobookshelf-audiobooks:/audiobooks
-      - audiobookshelf-podcasts:/podcasts
+      - type: bind 
+        source: /mnt/ark-1/Audio/Podcasts
+        target: /podcasts
       - audiobookshelf-metadata:/metadata
       - audiobookshelf-config:/config
     restart: unless-stopped

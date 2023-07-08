@@ -1,0 +1,28 @@
+version: '3.4'
+services:
+  miniflux:
+    image: hexxa/quickshare:latest
+    ports:
+      - 8686:8686
+    environment:
+      - DEFAULTADMIN=admin
+      - DEFAULTADMINPWD=Password1
+    volumes:
+      - quickshare-data:/quickshare/root
+    labels:
+      - "traefik.http.routers.miniflux.rule=Host(`share.dev03.zahite.net`)"
+      - "traefik.http.routers.miniflux.tls=true"
+      - "traefik.http.routers.miniflux.tls.certresolver=myresolver"
+      - "traefik.docker.network=traefik_quickshare"
+    networks:
+      - traefik
+
+
+volumes:
+  quickshare-data:
+
+
+networks:
+  traefik:
+    external:
+      name: traefik_quickshare

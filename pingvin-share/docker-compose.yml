@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  pingvin-share:
+    image: stonith404/pingvin-share
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    volumes:
+      - pingvin-share:/opt/app/backend/data
+#      - "./data/images:/opt/app/frontend/public/img"
+    labels:
+      - "traefik.http.routers.pingvin-share.rule=Host(`share.dev03.zahite.net`)"
+      - "traefik.http.routers.pingvin-share.tls=true"
+      - "traefik.http.routers.pingvin-share.tls.certresolver=myresolver"
+      - "traefik.docker.network=traefik_pingvin-share"
+    networks:
+      - traefik
+
+volumes:
+  pingvin-share-data:
+
+
+networks:
+  traefik:
+    external:
+      name: traefik_pingvin-share

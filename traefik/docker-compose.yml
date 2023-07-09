@@ -22,7 +22,7 @@ services:
         - jenkins
         - linkace
         - audio-bookshelf
-        - pingbin-share
+        - pingvin-share
 
 networks:
   readme:

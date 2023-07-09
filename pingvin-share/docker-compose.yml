@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.4'
 services:
   pingvin-share:
     image: stonith404/pingvin-share

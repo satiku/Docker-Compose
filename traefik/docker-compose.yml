@@ -22,6 +22,7 @@ services:
         - jenkins
         - linkace
         - audio-bookshelf
+        - pingbin-share
 
 networks:
   readme:
@@ -53,6 +54,10 @@ networks:
     driver: overlay
 
   audio-bookshelf:
+    attachable: true
+    driver: overlay
+
+  pingvin-share:
     attachable: true
     driver: overlay
 

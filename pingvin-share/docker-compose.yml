@@ -6,7 +6,7 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - pingvin-share:/opt/app/backend/data
+      - pingvin-share-data:/opt/app/backend/data
 #      - "./data/images:/opt/app/frontend/public/img"
     labels:
       - "traefik.http.routers.pingvin-share.rule=Host(`share.dev03.zahite.net`)"

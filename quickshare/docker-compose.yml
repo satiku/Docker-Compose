@@ -1,6 +1,6 @@
 version: '3.4'
 services:
-  miniflux:
+  quickshare:
     image: hexxa/quickshare:latest
     ports:
       - 8686:8686

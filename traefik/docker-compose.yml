@@ -23,6 +23,7 @@ services:
         - linkace
         - audio-bookshelf
         - pingvin-share
+        - fbc-nginx
 
 networks:
   readme:
@@ -61,4 +62,7 @@ networks:
     attachable: true
     driver: overlay
 
+  fbc-nginx:
+    attachable: true
+    driver: overlay
 

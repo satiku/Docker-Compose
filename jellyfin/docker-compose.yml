@@ -19,7 +19,8 @@ services:
       - "traefik.http.routers.jellyfin.tls=true"
       - "traefik.http.routers.jellyfin.tls.certresolver=myresolver"
       - "traefik.docker.network=traefik_jellyfin"
-
+    networks:
+      - traefik
 
 volumes:
   jellyfin_config:

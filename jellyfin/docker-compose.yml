@@ -1,0 +1,33 @@
+version: '3.5'
+services:
+  jellyfin:
+    image: jellyfin/jellyfin
+    volumes:
+      - jellyfin_config:/config
+      - jellyfin_cache:/cache
+      - type: bind 
+        source: /mnt/ark-1/Videos/Movies
+        target: /Movies
+        read_only: true
+      - type: bind 
+        source: /mnt/ark-1/Videos/Shows
+        target: /Shows
+        read_only: true
+    restart: 'unless-stopped'
+    labels:
+      - "traefik.http.routers.jellyfin.rule=Host(`stream.dev03.zahite.net`)"
+      - "traefik.http.routers.jellyfin.tls=true"
+      - "traefik.http.routers.jellyfin.tls.certresolver=myresolver"
+      - "traefik.docker.network=traefik_jellyfin"
+
+
+volumes:
+  jellyfin_config:
+  jellyfin_cache:
+
+networks:
+  traefik:
+    external:
+      name: traefik_jellyfin
+      
+      

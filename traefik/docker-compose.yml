@@ -24,6 +24,7 @@ services:
         - linkace
         - audio-bookshelf
         - pingvin-share
+        - fbc-nginx
         - spidey-nginx
         - jellyfin 
 

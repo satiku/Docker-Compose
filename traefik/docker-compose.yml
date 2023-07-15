@@ -25,6 +25,7 @@ services:
         - audio-bookshelf
         - pingvin-share
         - spidey-nginx
+        - jellyfin 
 
 networks:
   readme:
@@ -68,5 +69,9 @@ networks:
     driver: overlay
 
   spidey-nginx:
+    attachable: true
+    driver: overlay
+  
+  jellyfin:
     attachable: true
     driver: overlay

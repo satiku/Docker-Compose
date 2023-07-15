@@ -24,7 +24,7 @@ services:
         - linkace
         - audio-bookshelf
         - pingvin-share
-        - fbc-nginx
+        - spidey-nginx
 
 networks:
   readme:
@@ -67,3 +67,6 @@ networks:
     attachable: true
     driver: overlay
 
+  spidey-nginx:
+    attachable: true
+    driver: overlay

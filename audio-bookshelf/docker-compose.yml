@@ -21,7 +21,7 @@ services:
       - "traefik.http.routers.audiobookshelf.tls=true"
       - "traefik.http.routers.audiobookshelf.tls.certresolver=myresolver"
       - "traefik.docker.network=taefik_audiobookshelf"
-    command: node --max-old-space-size=1024 index.js 
+    command: node --max-old-space-size=4096 index.js 
 
 volumes: 
   audiobookshelf-audiobooks:

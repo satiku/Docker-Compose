@@ -11,7 +11,8 @@ services:
       - kanboard_plugins:/var/www/app/plugins
       - kanboard_ssl:/etc/nginx/ssl
     environment:
-      DATABASE_URL: mysql://kanboard:kanboard-secret@db/kanboard
+      - DATABASE_URL=mysql://kanboard:kanboard-secret@db/kanboard
+      - PLUGIN_INSTALLER=true
     networks:
       - kanboard-db
       - traefik

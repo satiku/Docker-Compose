@@ -21,7 +21,14 @@ services:
       - "traefik.docker.network=traefik_jellyfin"
     networks:
       - traefik
-
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1024M
+        reservations:
+          cpus: '0.1'
+          memory: 150M
 volumes:
   jellyfin_config:
   jellyfin_cache:

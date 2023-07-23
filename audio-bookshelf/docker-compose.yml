@@ -20,7 +20,7 @@ services:
       - "traefik.http.routers.audiobookshelf.rule=Host(`listen.dev03.zahite.net`)"
       - "traefik.http.routers.audiobookshelf.tls=true"
       - "traefik.http.routers.audiobookshelf.tls.certresolver=myresolver"
-      - "traefik.docker.network=taefik_audiobookshelf"
+      - "traefik.docker.network=traefik_audio-bookshelf"
 
 
 volumes: 

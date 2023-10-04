@@ -3,7 +3,6 @@ version: "3.7"
 services:
   jenkins:
     image: jenkins/jenkins:lts-jdk11
-    user: 1002:1003
     ports:
      - "50000:50000"
      - "8085:8080"
